@@ -562,7 +562,7 @@ int query(int argc, char **argv, char *full_cmd)
 
         uint32_t *tmp_U_R = (uint32_t *)
                 realloc(U_R, (U_R_len + id_lens[i]) * sizeof(uint32_t));
-        if (!tmp_U_R)
+        if (!tmp_U_R && id_lens[i] > 0)
             err(EX_OSERR, "malloc error");
         else
             U_R = tmp_U_R;
